@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    form(method="post" action="/board/write")    
+        p 
+        |  
+        input(placeholder='제목을 입력하세요', name='title', id='title', style= 'width:350px')
+        p
+        input(placeholder='작성자', name='writer', id='writer', style= 'width:100px')        
+        p
+        |  
+        textarea(placeholder='내용을 입력하세요',name='content', id='content', rows='10' cols='50')
+        p
+        button(type='submit') 글작성하기

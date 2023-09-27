@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model board {
+  board_num Int       @id @default(autoincrement())
+  title     String    @db.VarChar(100)
+  content   String?   @db.Text
+  writer    String    @db.VarChar(100)
+  wr_date   DateTime? @default(now()) @db.Timestamp(0)
+  view_cnt  Int?      @default(0)
+}

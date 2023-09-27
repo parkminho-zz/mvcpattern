@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    each row in detailboardlist
+        dd 게시글 번호: #{row.board_num}
+        dd 제목: #{row.title}
+        dd 내용: #{row.content}
+        dd 작성자: #{row.writer}
+        dd 작성날짜: #{row.wr_date}
+        dd 조회수: #{row.view_cnt}
+
+    form(method="get" action=`/board/${board_num}/modify`)    
+        button(type='submit' ) 수정하기
+    form(method="get" action=`/board/list`)    
+        button(type='submit' ) 목록
+    form(method="post" action=`/board/${board_num}/delete`)    
+        button(type='submit' ) 삭제하기
